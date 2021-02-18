@@ -13,10 +13,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.path as mpath
 
-from tesi.GraphRec.UserItemUpdater import UserItemUpdater
-from tesi.GraphRec.UserItemAggregator import UserItemAggregator
-from tesi.GraphRec.UserUserUpdater import UserUserUpdater
-from tesi.GraphRec.UserUserAggregator import UserUserAggregator
+from UserItemUpdater import UserItemUpdater
+from UserItemAggregator import UserItemAggregator
+from UserUserUpdater import UserUserUpdater
+from UserUserAggregator import UserUserAggregator
 
 from pyjavaproperties import Properties
 properties = Properties()
