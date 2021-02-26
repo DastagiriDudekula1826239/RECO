@@ -20,7 +20,7 @@ from UserUserAggregator import UserUserAggregator
 
 from pyjavaproperties import Properties
 properties = Properties()
-properties.load(open('/home/giri/global.properties'))
+properties.load(open('global.properties'))
 
 """
 
