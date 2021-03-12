@@ -318,8 +318,8 @@ def main():
 
     embeddig_dim = int(properties.getProperty('EMBEDD_DIM'))
 
-    user_embeddings = nn.Embedding(50000, embeddig_dim).to(device, dtype=torch.half, non_blocking=True)
-    item__embeddings = nn.Embedding(140000, embeddig_dim).to(device)
+    user_embeddings = nn.Embedding(user_to_items_history.__len__(), embeddig_dim).to(device)
+    item__embeddings = nn.Embedding(item_by_users_history.__len__(), embeddig_dim).to(device)
     #Dianping : int(properties.getProperty('RATINGS_COUNT_DIANPING'))
     #Epinions : int(properties.getProperty('RATINGS_COUNT_EPINIONS'))
     #Ciao : int(properties.getProperty('RATINGS_COUNT_CIAO'))
@@ -408,10 +408,39 @@ CHUNK=256
 EMBEDD_DIM=64
 LEARNING_RATE=0.001
 EPOCHS=75
-LEARN_USER_FEATURES_FROM_UV_GRAPH=True
+LEARN_USER_FEATURES_FROM_UV_GRAPH=False
 RESEARCH_PLOTS_SAVE_HERE=/home/giri/Thesis/research/
 BEST_RMSE=9999.0
 BEST_MAE=9999.0
-CALLS_TO_STOP=6
+
+# Dianping datasets
+SOCIAL_GRAPH_DIANPING=/home/giri/DemoData/Dianping/txtVersion/user.txt
+USER_ITEM_GRAPH_DIANPING=/home/giri/DemoData/Dianping/txtVersion/rating.txt
+TRAIN_DIANPING=/home/giri/DemoData/Dianping/csvVersion/train_90_D2.csv
+VALIDATION_DIANPING=/home/giri/DemoData/Dianping/csvVersion/validation_10_D2.csv
+TEST_DIANPING=/home/giri/DemoData/Dianping/csvVersion/test_10_D2.csv
+# [0, 1, 2, 3, 4, 5] user rates items by one of opinion
+RATINGS_COUNT_DIANPING=6
+
+
+# Epinions datasets
+
+SOCIAL_GRAPH_EPINIONS=/home/giri/DemoData/Epinions/trust_data.txt
+USER_ITEM_GRAPH_EPINIONS=/home/giri/DemoData/Epinions/ratings_data.txt
+TRAIN_EPINIONS=/home/giri/DemoData/Epinions/csvVersion/train_10k_90.csv
+VALIDATION_EPINIONS=/home/giri/DemoData/Epinions/csvVersion/validation_10.csv
+TEST_EPINIONS=/home/giri/DemoData/Epinions/csvVersion/test_10.csv
+# [1, 2, 3, 4, 5] user rates items by one of opinion
+RATINGS_COUNT_EPINIONS=5
+
+
+# Ciao datasets
+SOCIAL_GRAPH_CIAO=/home/giri/DemoData/ciao/trustnetwork.csv
+USER_ITEM_GRAPH_CIAO=/home/giri/DemoData/ciao/rating.csv
+TRAIN_CIAO=/home/giri/DemoData/ciao/train_90.csv
+VALIDATION_CIAO=/home/giri/DemoData/ciao/validation_10.csv
+TEST_CIAO=/home/giri/DemoData/ciao/test_10.csv
+# [0, 1, 2, 3, 4, 5] user rates items by one of opinion
+RATINGS_COUNT_CIAO=6
 
 """
